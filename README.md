@@ -1,36 +1,51 @@
 # ShellFile
 
-> Create dev files instantly from the Windows right-click menu.
+Create files instantly from the Windows right-click menu.
 
-![ShellFile Demo Video/GIF](screenshot_placeholder.gif)
+## Download
 
-## Features
+Get ShellFile on Gumroad:  
+https://shubhamster657.gumroad.com/l/shellfile
 
-- Right-click inside any folder → New file instantly
-- Supports `.md`, `.py`, `.js`, `.cpp`, `.json`, `.txt` (Free)
-- Project scaffolding for Python, Node, Rust (Pro)
-- File templates — not empty files (Pro)
-- 100% offline, no telemetry, no subscriptions
+## Demo Video
 
-## Install
+[Watch the demo video](assets/demo/shellfile-demo.mp4)
 
-[Download .exe installer](https://gumroad.com/l/shellfile)
+## What ShellFile Does
 
-## Pro Version
+- Adds **ShellFile** actions to the Windows folder background context menu
+- Creates common dev files in one click
+- Supports templates for pre-filled file content
+- Generates project scaffolds (`python`, `node`, `rust`)
+- Runs fully offline
 
-$5, one-time. [Get it on Gumroad](https://gumroad.com/l/shellfile)
+## Quick Start
 
-## Build from Source
+1. Download the installer from Gumroad.
+2. Run `ShellFile-Setup.exe` as Administrator.
+3. Right-click inside any folder background.
+4. Create files instantly from the **ShellFile** menu.
 
-You will need Rust installed on your system.
+## Build From Source
 
 ```bash
 cargo build --release
 ```
 
-The resulting executable will be placed in `target/release/shellfile.exe`.
+Binary output:
+
+`target/release/shellfile.exe`
+
+## Package Installer (NSIS)
+
+```powershell
+& "C:\Program Files (x86)\NSIS\makensis.exe" installer\shellfile.nsi
+```
+
+Installer output:
+
+`ShellFile-Setup.exe`
 
 ## License
 
-MIT License (Free Version)
-Commercial License (Pro Version)
+MIT License. See [LICENSE.txt](LICENSE.txt).

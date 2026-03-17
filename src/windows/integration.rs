@@ -23,9 +23,6 @@ const FREE_EXTS: &[(&str, &str)] = &[
     ("scss", "New SCSS File"),
     ("txt", "New Text File"),
     ("podman", "New Podman File"),
-];
-
-const PRO_EXTS: &[(&str, &str)] = &[
     ("rs", "New Rust File"),
     ("go", "New Go File"),
     ("swift", "New Swift File"),
@@ -67,24 +64,7 @@ pub fn register_context_menu() -> Result<(), Box<dyn std::error::Error>> {
 
     let hkcr = RegKey::predef(HKEY_CLASSES_ROOT);
     let base = r"Directory\Background\shell";
-    let is_pro = crate::licensing::license_validator::is_pro_activated();
-
     for &(ext, label) in FREE_EXTS {
-        let key_path = format!(r"{}\ShellFile_{}", base, ext);
-        let (key, _) = hkcr.create_subkey(&key_path)?;
-        key.set_value("", &label)?;
-
-        let (cmd_key, _) = hkcr.create_subkey(format!(r"{}\command", key_path))?;
-        let exe = r"C:\Program Files\ShellFile\shellfile.exe";
-        cmd_key.set_value("", &format!("\"{}\" {} \"%V\"", exe, ext))?;
-    }
-
-    for &(ext, label) in PRO_EXTS {
-        let label = if is_pro {
-            label.to_string()
-        } else {
-            format!("{} [Pro]", label)
-        };
         let key_path = format!(r"{}\ShellFile_{}", base, ext);
         let (key, _) = hkcr.create_subkey(&key_path)?;
         key.set_value("", &label)?;
