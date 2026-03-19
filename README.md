@@ -48,4 +48,6 @@ Installer output:
 
 ## License
 
-MIT License. See [LICENSE.txt](LICENSE.txt).
+license = "LicenseRef-Proprietary"
+
+
